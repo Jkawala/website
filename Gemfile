@@ -3,6 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+#Better errors pop up for ruby
+gem 'better_errors', '~> 2.9', '>= 2.9.1'
+
+gem 'mail_form', '~> 1.9'
+#A gem that handles creating a simple form
+#gem 'simple_form', '~> 5.1'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
@@ -49,11 +56,19 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  #Byebug is a Ruby debugger. It's implemented using the TracePoint C API for execution control and the Debug Inspector C API for call stack navigation.
+  gem 'byebug', '~> 11.1', '>= 11.1.3'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
+  #Guard is a command line tool to easily handle events on file system modifications.
+  gem 'guard', '~> 2.18'
+
+#Guard::LiveReload automatically reloads your browser when 'view' files are modified.
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
+
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -70,3 +85,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "devise", "~> 4.8"
+
+gem "ransack", "~> 3.2"
